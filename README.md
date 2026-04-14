@@ -17,3 +17,5 @@ This project demonstrates a simple CI/CD pipeline using GitHub Actions.
 
 - CI: Test and build steps
 - CD: Deployment using GitHub Pages
+
+# 665a5-a6-a8-seminar
