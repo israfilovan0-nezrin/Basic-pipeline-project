@@ -1,6 +1,7 @@
 name: VS Code CI/CD
 
 on:
+  pull_request:
   push:
     branches: [ "main" ]
 
@@ -13,9 +14,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - run: echo "Test OK"
       - run: echo "Build OK"
-      - uses: peaceiris/actions-gh-pages@v3
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
